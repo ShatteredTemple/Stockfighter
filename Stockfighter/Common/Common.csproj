@@ -37,8 +37,24 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Enumerations.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\HeartbeatModel.cs" />
+    <Compile Include="Models\StockOrderBookModel.cs" />
+    <Compile Include="Models\StockOrderModel.cs" />
+    <Compile Include="Models\StockOrderModelBase.cs" />
+    <Compile Include="Models\StockQuoteModel.cs" />
+    <Compile Include="Models\StockOrderFillModel.cs" />
+    <Compile Include="Models\StockOrderRequestModel.cs" />
+    <Compile Include="Models\StockTransactionModel.cs" />
+    <Compile Include="Models\VenueOrdersModel.cs" />
+    <Compile Include="Models\VenueStocksModel.cs" />
+    <Compile Include="Models\StockModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ICachedRepository.cs" />
+    <Compile Include="Repositories\IStockExchange.cs" />
+    <Compile Include="Repositories\IStockVenue.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
