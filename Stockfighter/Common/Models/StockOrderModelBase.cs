@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace FallenTemple.Stockfighter.Common.Models
+namespace ShatteredTemple.Stockfighter.Common.Models
 {
     /// <summary>
     /// Base model for both placing and getting the status of a stock order.

@@ -1,4 +1,4 @@
-﻿namespace FallenTemple.Stockfighter.Common
+﻿namespace ShatteredTemple.Stockfighter.Common
 {
     /// <summary>
     /// Well-defined exchanges (generally for test purposes).

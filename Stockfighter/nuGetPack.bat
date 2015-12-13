@@ -1,0 +1,1 @@
+%USERPROFILE%\NuGet.exe pack StockExchange\StockExchange.csproj -IncludeReferencedProjects -Prop Configuration=Release -Symbols

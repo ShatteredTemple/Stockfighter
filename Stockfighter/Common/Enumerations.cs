@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace FallenTemple.Stockfighter.Common
+namespace ShatteredTemple.Stockfighter.Common
 {
     public enum StockOrderDirection
     {

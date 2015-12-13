@@ -2,12 +2,15 @@
 using System.Net.Http;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using FallenTemple.Stockfighter.Common;
-using FallenTemple.Stockfighter.Common.Models;
-using FallenTemple.Stockfighter.Common.Repositories;
+using ShatteredTemple.Stockfighter.Common;
+using ShatteredTemple.Stockfighter.Common.Models;
+using ShatteredTemple.Stockfighter.Common.Repositories;
 
-namespace FallenTemple.Stockfighter.StockExchange
+namespace ShatteredTemple.Stockfighter.StockExchange
 {
+    /// <summary>
+    /// Specific stock venue within the overall <see cref="StockExchange"/> API.
+    /// </summary>
     public sealed class StockVenue : StockExchangeBase, IStockVenue, ICachedRepository
     {
         private string m_venue;
@@ -24,15 +27,13 @@ namespace FallenTemple.Stockfighter.StockExchange
             this.m_venue = venue;
         }
 
-        #region ICachedRepository
+        #region IStockVenue
 
-        public void ClearCache()
-        {
-            this.m_venueStocks = null;
-        }
-
-        #endregion
-
+        /// <summary>
+        /// Cancels an outstanding order.
+        /// </summary>
+        /// <param name="order">Order to cancel</param>
+        /// <returns>Status of the order (cancelled, or if it's been subsequently fulfilled before cancellation request was received).</returns>
         public async Task<StockOrderModel> CancelOrder(StockOrderModel order)
         {
             using (var client = this.GetHttpClient())
@@ -56,6 +57,11 @@ namespace FallenTemple.Stockfighter.StockExchange
             }
         }
 
+        /// <summary>
+        /// Gets the order book for a stock.
+        /// </summary>
+        /// <param name="symbol">Stock to get the order book for.</param>
+        /// <returns>The order book.</returns>
         public async Task<StockOrderBookModel> GetOrderBook(string symbol)
         {
             if (!Regex.IsMatch(symbol, "[a-zA-z]*"))
@@ -70,6 +76,11 @@ namespace FallenTemple.Stockfighter.StockExchange
             }
         }
 
+        /// <summary>
+        /// Gets the status of all orders by an account.
+        /// </summary>
+        /// <param name="account">Account to check the status of.</param>
+        /// <returns>Non-cold orders for the account.</returns>
         public async Task<VenueOrdersModel> GetOrderStatuses(string account)
         {
             using (var client = this.GetHttpClient())
@@ -79,6 +90,12 @@ namespace FallenTemple.Stockfighter.StockExchange
             }
         }
 
+        /// <summary>
+        /// Gets the status of all orders by an account for a specific stock.
+        /// </summary>
+        /// <param name="account">Account to check the status of.</param>
+        /// <param name="symbol">Stock to check the status of.</param>
+        /// <returns>Non-cold orders for the stock by the account.</returns>
         public async Task<VenueOrdersModel> GetOrderStatuses(string account, string symbol)
         {
             if (!Regex.IsMatch(symbol, "[a-zA-z]*"))
@@ -93,6 +110,11 @@ namespace FallenTemple.Stockfighter.StockExchange
             }
         }
 
+        /// <summary>
+        /// Gets the current status of a previously-placed order.
+        /// </summary>
+        /// <param name="order">Order to check the status of.</param>
+        /// <returns>Updated order status.</returns>
         public async Task<StockOrderModel> GetOrderStatus(StockOrderModel order)
         {
             using (var client = this.GetHttpClient())
@@ -102,16 +124,21 @@ namespace FallenTemple.Stockfighter.StockExchange
             }
         }
 
-        public async Task<StockQuoteModel> GetStockQuote(string stock)
+        /// <summary>
+        /// Get a quote for a specific stock on this venu.
+        /// </summary>
+        /// <param name="symbol">Symbol of this stock.</param>
+        /// <returns>Quote for the stock.</returns>
+        public async Task<StockQuoteModel> GetStockQuote(string symbol)
         {
-            if (!Regex.IsMatch(stock, "[a-zA-z]*"))
+            if (!Regex.IsMatch(symbol, "[a-zA-z]*"))
             {
-                throw new ArgumentException("Invalid stock symbol specification", stock);
+                throw new ArgumentException("Invalid stock symbol specification", symbol);
             }
 
             using (var client = this.GetHttpClient())
             {
-                var response = await client.GetAsync(String.Format("venues/{0}/stocks/{1}/quote", this.m_venue, stock)).ConfigureAwait(false);
+                var response = await client.GetAsync(String.Format("venues/{0}/stocks/{1}/quote", this.m_venue, symbol)).ConfigureAwait(false);
                 return await StockExchangeUtility.GetResponseOrErrorModel<StockQuoteModel>(response).ConfigureAwait(false);
             }
         }
@@ -164,5 +191,19 @@ namespace FallenTemple.Stockfighter.StockExchange
                 return await StockExchangeUtility.GetResponseOrErrorModel<StockOrderModel>(response).ConfigureAwait(false);
             }
         }
+
+        #endregion
+
+        #region ICachedRepository
+
+        /// <summary>
+        /// Clear the cache for this repository.
+        /// </summary>
+        public void ClearCache()
+        {
+            this.m_venueStocks = null;
+        }
+
+        #endregion
     }
 }

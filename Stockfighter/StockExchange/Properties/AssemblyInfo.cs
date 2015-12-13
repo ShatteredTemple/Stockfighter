@@ -7,9 +7,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Stockfighter Stock Exchange")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Repository granting access to Stockfighter's live API.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Shattered Temple Software")]
 [assembly: AssemblyProduct("Stockfighter")]
 [assembly: AssemblyCopyright("Copyright © 2015 Andrew Timson")]
 [assembly: AssemblyTrademark("")]

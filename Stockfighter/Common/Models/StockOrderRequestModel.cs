@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace FallenTemple.Stockfighter.Common.Models
+namespace ShatteredTemple.Stockfighter.Common.Models
 {
     /// <summary>
     /// Model for placing a stock order initially. The result, and all other

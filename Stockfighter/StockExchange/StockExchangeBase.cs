@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net.Http;
 
-namespace FallenTemple.Stockfighter.StockExchange
+namespace ShatteredTemple.Stockfighter.StockExchange
 {
     /// <summary>
     /// Base class containing common Stock Exchange functionality.

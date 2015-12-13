@@ -8,8 +8,8 @@
     <ProjectGuid>{708047C0-F6AA-472A-A755-F3ABD55B6A38}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FallenTemple.Stockfighter.StockExchange</RootNamespace>
-    <AssemblyName>FallenTemple.Stockfighter.StockExchange</AssemblyName>
+    <RootNamespace>ShatteredTemple.Stockfighter.StockExchange</RootNamespace>
+    <AssemblyName>ShatteredTemple.Stockfighter.StockExchange</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -36,6 +36,7 @@
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
     <None Include="packages.config" />
+    <None Include="StockExchange.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DependencyInjector.cs" />

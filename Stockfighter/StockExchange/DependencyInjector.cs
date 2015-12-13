@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using FallenTemple.Stockfighter.Common.Repositories;
+using ShatteredTemple.Stockfighter.Common.Repositories;
 
-namespace FallenTemple.Stockfighter.StockExchange
+namespace ShatteredTemple.Stockfighter.StockExchange
 {
     /// <summary>
     /// Class allowing the consumer to automatically wire up our offerings.

@@ -1,9 +1,12 @@
 ﻿using System.Collections.Generic;
-using FallenTemple.Stockfighter.Common.Repositories;
+using ShatteredTemple.Stockfighter.Common.Repositories;
 
-namespace FallenTemple.Stockfighter.StockExchange
+namespace ShatteredTemple.Stockfighter.StockExchange
 {
-    public sealed class StockVenues : StockExchangeBase, ICachedRepository
+    /// <summary>
+    /// Parent class wrapping <see cref="IStockVenue"/>s offered by an <see cref="IStockExchange"/>.
+    /// </summary>
+    public sealed class StockVenues : StockExchangeBase, IStockVenues, ICachedRepository
     {
         private Dictionary<string, StockVenue> m_venues;
 
@@ -13,24 +16,14 @@ namespace FallenTemple.Stockfighter.StockExchange
             this.m_venues = new Dictionary<string, StockVenue>();
         }
 
-        #region ICachedRepository
-
-        public void ClearCache()
-        {
-            foreach (var venue in this.m_venues.Values)
-            {
-                venue.ClearCache();
-            }
-        }
-
-        #endregion
+        #region IStockVenues
 
         /// <summary>
         /// Gets a specific <see cref="StockVenue"/> repository.
         /// </summary>
         /// <param name="venue">Name of the venue to get.</param>
         /// <returns>Venue object.</returns>
-        public StockVenue this[string venue]
+        public IStockVenue this[string venue]
         {
             get
             {
@@ -46,5 +39,24 @@ namespace FallenTemple.Stockfighter.StockExchange
                 return this.m_venues[venue];
             }
         }
+
+        #endregion
+
+        #region ICachedRepository
+
+        /// <summary>
+        /// Clear the cache for this repository.
+        /// </summary>
+        public void ClearCache()
+        {
+            foreach (var venue in this.m_venues.Values)
+            {
+                venue.ClearCache();
+            }
+        }
+
+        #endregion
+
+
     }
 }

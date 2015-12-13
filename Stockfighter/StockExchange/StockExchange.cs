@@ -1,13 +1,13 @@
 ﻿using System.Threading.Tasks;
-using FallenTemple.Stockfighter.Common.Models;
-using FallenTemple.Stockfighter.Common.Repositories;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using ShatteredTemple.Stockfighter.Common.Models;
+using ShatteredTemple.Stockfighter.Common.Repositories;
 
-namespace FallenTemple.Stockfighter.StockExchange
+namespace ShatteredTemple.Stockfighter.StockExchange
 {
     /// <summary>
-    /// Helper class to access the Stockfighter Stock Exchange JSON API.
+    /// Repository to access the Stockfighter Stock Exchange JSON API.
     /// </summary>
     public sealed class StockExchange : StockExchangeBase, IStockExchange
     {
@@ -47,6 +47,6 @@ namespace FallenTemple.Stockfighter.StockExchange
         /// <summary>
         /// Access the various venues the API offers.
         /// </summary>
-        public StockVenues Venues { get; private set; }
+        public IStockVenues Venues { get; private set; }
     }
 }

@@ -1,0 +1,1 @@
+%USERPROFILE%\NuGet.exe push *.nupkg

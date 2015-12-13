@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace FallenTemple.Stockfighter.Common.Models
+namespace ShatteredTemple.Stockfighter.Common.Models
 {
     [DataContract]
     public sealed class StockModel

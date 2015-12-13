@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Net.Http;
 using System.Threading.Tasks;
-using FallenTemple.Stockfighter.Common.Models;
+using ShatteredTemple.Stockfighter.Common.Models;
 
-namespace FallenTemple.Stockfighter.StockExchange
+namespace ShatteredTemple.Stockfighter.StockExchange
 {
     internal static class StockExchangeUtility
     {
