@@ -1,1 +1,1 @@
-%USERPROFILE%\NuGet.exe push *.nupkg
+%USERPROFILE%\NuGet.exe push ShatteredTemple.Stockfighter.StockExchange.%1.nupkg

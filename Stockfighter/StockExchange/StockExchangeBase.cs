@@ -9,7 +9,8 @@ namespace ShatteredTemple.Stockfighter.StockExchange
     public abstract class StockExchangeBase
     {
         // TODO: This needs to come from configuration somehow?
-        private static Uri s_stockfighterApiUri = new Uri("https://api.stockfighter.io/ob/api/");
+        private static readonly Uri s_stockfighterApiUri = new Uri("https://api.stockfighter.io/ob/api/");
+        protected const string s_stockfighterWebSocketUri = "wss://www.stockfighter.io/ob/api/ws/";
 
         /// <summary>
         /// API Key for the current user to access the Stock Exchange API.
